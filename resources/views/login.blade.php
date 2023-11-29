@@ -11,7 +11,7 @@
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                             <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
                                 <h4 class="text-white font-weight-bolder text-center mt-2 mb-0" style="padding: 20px">Sign in</h4>
-                                
+
                             </div>
                         </div>
                         <div class="card-body">
@@ -20,11 +20,11 @@
                                 @csrf
                                 <div class="input-group input-group-outline my-3">
                                     <label class="form-label">Username</label>
-                                    <input name="username" type="text" class="form-control">
+                                    <input name="username" type="text" class="form-control" id="username">
                                 </div>
                                 <div class="input-group input-group-outline mb-3">
                                     <label class="form-label">Password</label>
-                                    <input name="password" type="password" class="form-control">
+                                    <input name="password" type="password" class="form-control" id="password">
                                 </div>
                                 @if ($errors->any())
                                 <div class="alert alert-danger">
@@ -36,7 +36,7 @@
                                 </div>
                                 @endif
                                 <div class="text-center">
-                                    <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign
+                                    <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2" id="sign">Sign
                                         in</button>
                                 </div>
                                 <p class="mt-4 text-sm text-center">

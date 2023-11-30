@@ -2,7 +2,7 @@
 @section('dashboard-content')
 
 <head>
-    
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <style>
         .cari{
@@ -20,7 +20,7 @@
             border: none;
             color:#ffffff;
         }
-        
+
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"> --}}
@@ -133,7 +133,7 @@
                         <input name="nama_kelas" type="text" class="form-control" required>
                     </div>
                 </div>
-                
+
             </div>
             <div class="row my-4">
                 <div class="col-md-4">
@@ -149,7 +149,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">
- 
+
      $('.show_confirm').click(function(event) {
           var form =  $(this).closest("form");
           var name = $(this).data("name");
@@ -167,7 +167,7 @@
             }
           });
       });
-  
+
 </script>
 
 

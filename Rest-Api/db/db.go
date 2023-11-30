@@ -1,11 +1,12 @@
+// db/db.go
+
 package db
 
 import (
-	"Rest-Api/models"
 	"fmt"
-
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"Rest-Api/models"
 )
 
 var (

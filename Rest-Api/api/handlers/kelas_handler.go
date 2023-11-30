@@ -59,6 +59,3 @@ func DeleteKelas(c *gin.Context) {
 	fmt.Println(d)
 	c.JSON(200, gin.H{"id #" + id: "deleted"})
 }
-
-
-

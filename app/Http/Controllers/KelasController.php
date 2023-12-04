@@ -48,30 +48,6 @@ class KelasController extends Controller
     }
 
 
-    // public function kelas_add(Request $request) {
-    //     $request->validate([
-    //         'kode' => 'required|unique:kelas,kode',
-    //         'nama_kelas' => 'required|unique:kelas,nama_kelas',
-    //     ], [
-    //         'kode.required' => 'Kode kelas harus diisi',
-    //         'kode.unique' => 'Kode kelas sudah ada',
-    //         'nama_kelas.required' => 'Nama kelas harus diisi',
-    //         'nama_kelas.unique' => 'Nama kelas sudah ada',
-
-    //     ]);
-
-    //     $kelas = Kelas::create([
-    //         'kode' => $request->kode,
-    //         'nama_kelas' => $request->nama_kelas,
-    //     ]);
-
-    //     $notification = array(
-    //         'message' => 'Berhasil menambahkan data kelas!',
-    //         'alert-type' => 'success'
-    //     );
-
-    //     return redirect('kelas')->with($notification);
-    // }
     public function kelas_add(Request $request)
     {
         $request->validate([
@@ -82,45 +58,51 @@ class KelasController extends Controller
             'kode.unique' => 'Kode kelas sudah ada',
             'nama_kelas.required' => 'Nama kelas harus diisi',
             'nama_kelas.unique' => 'Nama kelas sudah ada',
+
         ]);
 
-        $response = Http::post('http://localhost:8080/kelas', [
+        $kelas = Kelas::create([
             'kode' => $request->kode,
             'nama_kelas' => $request->nama_kelas,
         ]);
 
-        if ($response->successful()) {
-            $notification = [
-                'message' => 'Berhasil menambahkan data kelas!',
-                'alert-type' => 'success'
-            ];
-        } else {
-            $notification = [
-                'message' => 'Gagal menambahkan data kelas. Silakan coba lagi.',
-                'alert-type' => 'error'
-            ];
-        }
+        $notification = array(
+            'message' => 'Berhasil menambahkan data kelas!',
+            'alert-type' => 'success'
+        );
 
         return redirect('kelas')->with($notification);
     }
+    // public function kelas_add(Request $request)
+    // {
+    //     $request->validate([
+    //         'kode' => 'required|unique:kelas,kode',
+    //         'nama_kelas' => 'required|unique:kelas,nama_kelas',
+    //     ], [
+    //         'kode.required' => 'Kode kelas harus diisi',
+    //         'kode.unique' => 'Kode kelas sudah ada',
+    //         'nama_kelas.required' => 'Nama kelas harus diisi',
+    //         'nama_kelas.unique' => 'Nama kelas sudah ada',
+    //     ]);
 
+    //     $response = Http::post('http://localhost:8080/kelas', [
+    //         'kode' => $request->kode,
+    //         'nama_kelas' => $request->nama_kelas,
+    //     ]);
 
-    // public function remove_kelas($kelas_id) {
-    //     $kelas = Kelas::find($kelas_id);
-
-    //     // Cek ketergantungan pada tabel Siswa
-    //     if (Siswa::where('kelas_id', $kelas->id)->exists()) {
-    //         return back()->with('error', 'Gagal menghapus data kelas. Terdapat data terkait dalam tabel Siswa.');
+    //     if ($response->successful()) {
+    //         $notification = [
+    //             'message' => 'Berhasil menambahkan data kelas!',
+    //             'alert-type' => 'success'
+    //         ];
+    //     } else {
+    //         $notification = [
+    //             'message' => 'Gagal menambahkan data kelas. Silakan coba lagi.',
+    //             'alert-type' => 'error'
+    //         ];
     //     }
 
-    //     // Cek ketergantungan pada tabel Guru
-    //     if (Guru::where('kelas_id', $kelas->id)->exists()) {
-    //         return back()->with('error', 'Gagal menghapus data kelas. Terdapat data terkait dalam tabel Guru.');
-    //     }
-
-    //     $kelas->delete();
-
-    //     return back()->with('success', 'Berhasil menghapus data kelas!');
+    //     return redirect('kelas')->with($notification);
     // }
 
 
@@ -138,15 +120,35 @@ class KelasController extends Controller
             return back()->with('error', 'Gagal menghapus data kelas. Terdapat data terkait dalam tabel Guru.');
         }
 
-        // Hapus melalui API Go
-        $response = Http::delete("http://localhost:8080/kelas/{$kelas_id}");
+        $kelas->delete();
 
-        if ($response->successful()) {
-            return back()->with('success', 'Berhasil menghapus data kelas!');
-        } else {
-            return back()->with('error', 'Gagal menghapus data kelas. Silakan coba lagi.');
-        }
+        return back()->with('success', 'Berhasil menghapus data kelas!');
     }
+
+
+    // public function remove_kelas($kelas_id)
+    // {
+    //     $kelas = Kelas::find($kelas_id);
+
+    //     // Cek ketergantungan pada tabel Siswa
+    //     if (Siswa::where('kelas_id', $kelas->id)->exists()) {
+    //         return back()->with('error', 'Gagal menghapus data kelas. Terdapat data terkait dalam tabel Siswa.');
+    //     }
+
+    //     // Cek ketergantungan pada tabel Guru
+    //     if (Guru::where('kelas_id', $kelas->id)->exists()) {
+    //         return back()->with('error', 'Gagal menghapus data kelas. Terdapat data terkait dalam tabel Guru.');
+    //     }
+
+    //     // Hapus melalui API Go
+    //     $response = Http::delete("http://localhost:8080/kelas/{$kelas_id}");
+
+    //     if ($response->successful()) {
+    //         return back()->with('success', 'Berhasil menghapus data kelas!');
+    //     } else {
+    //         return back()->with('error', 'Gagal menghapus data kelas. Silakan coba lagi.');
+    //     }
+    // }
 
 
 

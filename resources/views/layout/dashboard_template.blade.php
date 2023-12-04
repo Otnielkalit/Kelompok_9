@@ -28,7 +28,7 @@
             </li>
 
             @if(Auth::user()->role === 'admin')
-            
+
             <li class="nav-item">
                 <a class="nav-link text-white {{ Route::currentRouteName() === 'siswa' ? 'active bg-gradient-primary' : '' }}"
                     href="/siswa">
@@ -37,7 +37,7 @@
                     </div>
 
                     <span class="nav-link-text ms-1">Siswa</span>
-                    
+
                 </a>
             </li>
             <li class="nav-item">
@@ -48,18 +48,18 @@
                     </div>
 
                     <span class="nav-link-text ms-1">Guru</span>
-                    
+
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ Route::currentRouteName() === 'kelas' ? 'active bg-gradient-primary' : '' }}"
-                    href="/kelas">
+                    href="/kelas" id="kelas">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <span class="material-icons">school</span>
                     </div>
 
                     <span class="nav-link-text ms-1">Kelas</span>
-                    
+
                 </a>
             </li>
             <li class="nav-item">
@@ -74,7 +74,7 @@
             </li>
             @endif
             @if(Auth::user()->role === 'guru')
-            
+
             <li class="nav-item">
                 <a class="nav-link text-white {{ Route::currentRouteName() === 'poin_penilaian' ? 'active bg-gradient-primary' : '' }}"
                     href="/poin-penilaian">
@@ -96,7 +96,7 @@
                 </a>
             </li>
             @endif
-            <li class="nav-item"> 
+            <li class="nav-item">
                 <a class="nav-link text-white {{ Route::currentRouteName() === 'event' ? 'active bg-gradient-primary' : '' }}"
                     href="/calendar">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -104,7 +104,7 @@
                     </div>
 
                     <span class="nav-link-text ms-1">Kegiatan</span>
-                    
+
                 </a>
             </li>
             @if(Auth::user()->role === 'guru')

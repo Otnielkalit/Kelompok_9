@@ -1,5 +1,5 @@
 /node_modules
-WebdriverIO/node_modules
+/Folder-Testing/node_modules
 /public/build
 /public/hot
 /public/storage
@@ -15,3 +15,5 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+

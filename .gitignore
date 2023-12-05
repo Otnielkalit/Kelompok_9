@@ -1,5 +1,8 @@
 /node_modules
-/Folder-Testing/node_modules
+WebdriverIO/node_modules
+/Folder-Testing/testing-webdiver-api-kelas/node_modules
+/Folder-Testing/testing-webdiver-api-kelas/allure-report
+/Folder-Testing/
 /public/build
 /public/hot
 /public/storage
@@ -15,5 +18,3 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
-
-

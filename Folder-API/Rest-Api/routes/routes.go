@@ -21,5 +21,14 @@ func SetupRouter() *gin.Engine {
 
     r.POST("/login", handlers.Login)
 
+    aspek := r.Group("/aspek")
+    {
+        aspek.GET("/", handlers.GetAspekList)
+        aspek.GET("/:id", handlers.GetAspekByID)
+        aspek.POST("/", handlers.CreateAspek)
+        aspek.PUT("/:id", handlers.UpdateAspek)
+        aspek.DELETE("/:id", handlers.DeleteAspek)
+    }
+
 	return r
 }

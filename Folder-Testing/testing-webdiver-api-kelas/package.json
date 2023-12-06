@@ -1,0 +1,24 @@
+{
+  "name": "testing-webdiver-api-kelas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "wdio": "wdio run ./wdio.conf.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@wdio/cli": "^8.24.6",
+    "axios": "^1.6.2",
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0"
+  },
+  "devDependencies": {
+    "@wdio/local-runner": "^8.24.6",
+    "@wdio/mocha-framework": "^8.24.6",
+    "@wdio/spec-reporter": "^8.24.2"
+  }
+}

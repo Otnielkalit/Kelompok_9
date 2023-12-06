@@ -19,5 +19,7 @@ func SetupRouter() *gin.Engine {
 		kelas.DELETE("/:id", handlers.DeleteKelas)
 	}
 
+    r.POST("/login", handlers.Login)
+
 	return r
 }

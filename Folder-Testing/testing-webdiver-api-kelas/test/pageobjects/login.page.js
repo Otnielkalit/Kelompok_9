@@ -9,15 +9,19 @@ class LoginPage extends Page {
      * define selectors using getter methods
      */
     get inputUsername () {
-        return $('#username');
+        return $('input[name="username"]');
     }
 
     get inputPassword () {
-        return $('#password');
+        return $('input[name="password"]');
     }
 
     get btnSubmit () {
         return $('button[type="submit"]');
+    }
+
+    get txtDasboard(){
+        return $('//*[@id="navbarBlur"]/div/nav/h6')
     }
 
     /**
@@ -28,13 +32,14 @@ class LoginPage extends Page {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
+        await this.txtDasboard.isDisplayed()
     }
 
     /**
      * overwrite specific options to adapt it to page object
      */
     open () {
-        return super.open('login');
+        return super.open('signin');
     }
 }
 

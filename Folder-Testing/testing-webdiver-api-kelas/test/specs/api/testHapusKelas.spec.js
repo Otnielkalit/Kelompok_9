@@ -22,7 +22,7 @@ describe('Testing API Hapus Kelas', () => {
   // Test penghapusan kelas
   it('should delete a class successfully', async () => {
     try {
-      const classIdToDelete = '161';
+      const classIdToDelete = '164';
 
       const deleteUrl = `http://localhost:8080/kelas/${classIdToDelete}`;
       const response = await axios.delete(deleteUrl);

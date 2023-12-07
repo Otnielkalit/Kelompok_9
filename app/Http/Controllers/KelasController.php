@@ -42,7 +42,7 @@ class KelasController extends Controller
 
     public function kelas()
     {
-        $kelass = Kelas::paginate(5);
+        $kelass = Kelas::all();
 
         return view('dashboard.kelas', ['kelass' => $kelass]);
     }

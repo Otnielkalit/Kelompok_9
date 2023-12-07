@@ -98,7 +98,7 @@
             @endif
             <li class="nav-item">
                 <a class="nav-link text-white {{ Route::currentRouteName() === 'event' ? 'active bg-gradient-primary' : '' }}"
-                    href="/calendar">
+                    href="/calendar" id="kegiatan">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <span class="material-icons">event</span>
                     </div>

@@ -3,8 +3,8 @@
 package routes
 
 import (
-	"github.com/gin-gonic/gin"
 	"Rest-Api/api/handlers"
+	"github.com/gin-gonic/gin"
 )
 
 func SetupRouter() *gin.Engine {
@@ -19,16 +19,23 @@ func SetupRouter() *gin.Engine {
 		kelas.DELETE("/:id", handlers.DeleteKelas)
 	}
 
-    r.POST("/login", handlers.Login)
+	r.POST("/login", handlers.Login)
 
-    aspek := r.Group("/aspek")
-    {
-        aspek.GET("/", handlers.GetAspekList)
-        aspek.GET("/:id", handlers.GetAspekByID)
-        aspek.POST("/", handlers.CreateAspek)
-        aspek.PUT("/:id", handlers.UpdateAspek)
-        aspek.DELETE("/:id", handlers.DeleteAspek)
-    }
+	aspek := r.Group("/aspek")
+	{
+		aspek.GET("/", handlers.GetAspekList)
+		aspek.GET("/:id", handlers.GetAspekByID)
+		aspek.POST("/", handlers.CreateAspek)
+		aspek.PUT("/:id", handlers.UpdateAspek)
+		aspek.DELETE("/:id", handlers.DeleteAspek)
+	}
+
+	kegiatan := r.Group("/kegiatan")
+	{
+		kegiatan.GET("/", handlers.GetAllKegiatan)
+		kegiatan.POST("/", handlers.CreateKegiatan)
+		kegiatan.PUT("/:id", handlers.UpdateKegiatan)
+	}
 
 	return r
 }

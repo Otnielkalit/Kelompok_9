@@ -104,7 +104,6 @@
                     @endif
                 </tbody>
             </table>
-            {{ $kelass->links() }}
         </div>
     </div>
 </div>
@@ -137,7 +136,7 @@
             </div>
             <div class="row my-4">
                 <div class="col-md-4">
-                    <button type="submit" class="btn btn-info" onclick="success()">Submit</button>
+                    <button type="submit" id="tambah" class="btn btn-info" onclick="success()">Submit</button>
                     <button type="reset" class="btn btn-secondary">Reset</button>
                 </div>
             </div>

@@ -22,7 +22,8 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/api/*.spec.js'
+        // './test/specs/api/*.spec.js',
+        './test/specs/user-interface/*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -125,7 +126,11 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: ['spec', ['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: false,
+        disableWebdriverScreenshotsReporting: false,
+    }]],
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/

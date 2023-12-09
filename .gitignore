@@ -1,6 +1,6 @@
 /node_modules
-/Folder-Testing/node_modules
-/Folder-Testing/allure-results
+/Folder-Testing/testing-webdriverio/node_modules
+/Folder-Testing/testing-webdriverio/allure-results
 /public/build
 /public/hot
 /public/storage

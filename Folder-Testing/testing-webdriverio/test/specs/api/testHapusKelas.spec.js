@@ -5,7 +5,7 @@ describe('Testing API Hapus Kelas', () => {
   // Test penghapusan kelas
   it('should delete a class successfully', async () => {
     try {
-      const classIdToDelete = '148';
+      const classIdToDelete = '138';
 
       const deleteUrl = `http://localhost:8081/kelas/${classIdToDelete}`;
       const response = await axios.delete(deleteUrl);

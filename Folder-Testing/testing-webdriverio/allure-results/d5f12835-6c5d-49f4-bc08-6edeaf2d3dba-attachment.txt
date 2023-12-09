@@ -1,4 +1,0 @@
-{
-  "using": "css selector",
-  "value": ".fc-dayGridMonth-button.fc-button.fc-button-primary.fc-button-active"
-}

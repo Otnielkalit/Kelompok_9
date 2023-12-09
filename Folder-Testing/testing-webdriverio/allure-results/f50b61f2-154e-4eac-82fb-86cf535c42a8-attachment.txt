@@ -1,4 +1,0 @@
-{
-  "using": "xpath",
-  "value": "//*[@id=\"navbarBlur\"]/div/nav/h6"
-}

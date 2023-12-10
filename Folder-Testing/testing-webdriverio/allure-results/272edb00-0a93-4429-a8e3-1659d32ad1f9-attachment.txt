@@ -1,0 +1,5 @@
+{
+  "error": "no such element",
+  "message": "no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"input[name=\"nama_poin\"]\"}\n  (Session info: chrome=119.0.6045.200)",
+  "stacktrace": "\tGetHandleVerifier [0x00007FF6955E82B2+55298]\n\t(No symbol) [0x00007FF695555E02]\n\t(No symbol) [0x00007FF6954105AB]\n\t(No symbol) [0x00007FF69545175C]\n\t(No symbol) [0x00007FF6954518DC]\n\t(No symbol) [0x00007FF69548CBC7]\n\t(No symbol) [0x00007FF6954720EF]\n\t(No symbol) [0x00007FF69548AAA4]\n\t(No symbol) [0x00007FF695471E83]\n\t(No symbol) [0x00007FF69544670A]\n\t(No symbol) [0x00007FF695447964]\n\tGetHandleVerifier [0x00007FF695960AAB+3694587]\n\tGetHandleVerifier [0x00007FF6959B728E+4048862]\n\tGetHandleVerifier [0x00007FF6959AF173+4015811]\n\tGetHandleVerifier [0x00007FF6956847D6+695590]\n\t(No symbol) [0x00007FF695560CE8]\n\t(No symbol) [0x00007FF69555CF34]\n\t(No symbol) [0x00007FF69555D062]\n\t(No symbol) [0x00007FF69554D3A3]\n\tBaseThreadInitThunk [0x00007FF8A3AE257D+29]\n\tRtlUserThreadStart [0x00007FF8A52CAA58+40]\n"
+}

@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//table//span[contains(text(), \"Ketepatan dalam menembak\")]"
+}

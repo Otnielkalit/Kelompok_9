@@ -37,5 +37,15 @@ func SetupRouter() *gin.Engine {
 		kegiatan.PUT("/:id", handlers.UpdateKegiatan)
 	}
 
+    poinAspek := r.Group("/poin-aspek")
+    {
+        poinAspek.GET("/", handlers.GetAllPoinAspek)
+        poinAspek.GET("/:id", handlers.GetPoinAspekByID)
+        poinAspek.POST("/", handlers.CreatePoinAspek)
+        poinAspek.PUT("/:id", handlers.UpdatePoinAspek)
+        poinAspek.DELETE("/:id", handlers.DeletePoinAspek)
+    }
+
+
 	return r
 }

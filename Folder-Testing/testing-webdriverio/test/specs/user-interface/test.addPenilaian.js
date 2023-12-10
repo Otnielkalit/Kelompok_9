@@ -27,19 +27,19 @@ describe('Add new class', () => {
         browser.pause(10000)
     })
 
-    // it('I Chose Aspek', async () => {
-    //     const PenilaianPage = new PenilaianPage();
-    //     await PenilaianPage.selectFirstAspek();
-    //     browser.pause(10000);
-    // });
+    it('Click one aspek ', async () => {
+        browser.pause(5000);
+        await PenilaianPage.selectFirstAspek();
+        browser.pause(20000);
+    });
 
+    it('I input point name', async () => {
+        await PenilaianPage.addPoint('Ketepatan dalam menembak')
+        browser.pause(5000)
+    })
 
-    // it('Input data to form Tambah Kelas', async () => {
-    //     await KelasPage.addKelas('1008', 'Tadikah Mesrah')
-    //     browser.pause(5000)
-    // })
+    it('Succes add data penilaian aspek', async () => {
+        await expect(PenilaianPage.newData('Ketepatan dalam menembak')).toBeDisplayed()
+    })
 
-    // it('Succes add data kelas', async () => {
-    //     await expect(KelasPage.newData('1008')).toBeDisplayed()
-    // })
 })

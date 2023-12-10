@@ -22,28 +22,25 @@ class PenilaianPage extends Page {
 
     selectFirstAspek() {
         this.aspekDropdown.click();
-        const firstAspekOption = this.aspekDropdown.$('option:nth-child(2)');
-        firstAspekOption.click();
+        this.aspekDropdown.waitForDisplayed();
+        const firstOption = this.aspekDropdown.$('option:nth-child(2)'); // Adjust the index accordingly
+        firstOption.click();
     }
 
-    get fieldNamaKelas() {
-        return $('input[name="nama_kelas"]');
+    get fieldNamaPoint() {
+        return $('input[name="nama_poin"]');
     }
 
     get btnSubmit() {
-        return $('button[id="tambah"]');
+        return $('button[id="tambahPoint"]');
     }
 
-    newData(kode) {
-        // const combinedSelector = $$(`//span[contains(text(), "${nama}")], //span[contains(text(),"${nama_kelas}")]`);
-        // const selector = `//table//span[contains(text(), "${kode}")]`;
-        // return selector;
-        return $$(`//table//span[contains(text(), "${kode}")]`)
+    newData(nama_poin) {
+        return $$(`//table//span[contains(text(), "${nama_poin}")]`)
     }
 
-    async addPoint(kode, nama_kelas) {
-        await this.fieldKode.setValue(kode);
-        await this.fieldNamaKelas.setValue(nama_kelas);
+    async addPoint(fieldNamaPoint) {
+        await this.fieldNamaPoint.setValue(fieldNamaPoint);
         await this.btnSubmit.click();
     }
 }

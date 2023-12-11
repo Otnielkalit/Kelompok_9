@@ -1,13 +1,11 @@
-
-
 package handlers
 
 import (
 	"net/http"
 
-	"github.com/gin-gonic/gin"
 	"Rest-Api/db"
 	"Rest-Api/models"
+	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -15,6 +13,17 @@ func Login(c *gin.Context) {
 	var input models.Akun
 	if err := c.BindJSON(&input); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid input"})
+		return
+	}
+
+	if input.Username == "" && input.Password == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Username dan password harus diisi"})
+		return
+	} else if input.Username == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Username harus diisi"})
+		return
+	} else if input.Password == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Password harus diisi"})
 		return
 	}
 
@@ -29,5 +38,7 @@ func Login(c *gin.Context) {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid credentials"})
 		return
 	}
+
 	c.JSON(http.StatusOK, gin.H{"message": "Login successful", "user": akun})
 }
+

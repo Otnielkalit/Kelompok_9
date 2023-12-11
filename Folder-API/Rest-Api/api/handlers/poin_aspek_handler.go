@@ -33,21 +33,26 @@ func GetPoinAspekByID(c *gin.Context) {
 
 // CreatePoinAspek untuk membuat poin_aspek baru
 func CreatePoinAspek(c *gin.Context) {
-    var newPoinAspek models.PoinAspek
-    if err := c.ShouldBindJSON(&newPoinAspek); err != nil {
-        c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid input: " + err.Error()})
-        return
-    }
+	var newPoinAspek models.PoinAspek
+	if err := c.ShouldBindJSON(&newPoinAspek); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid input: " + err.Error()})
+		return
+	}
 
-    // Pastikan aspek_id yang dimasukkan ada dalam tabel aspek
-    var aspek models.Aspek
-    if err := db.DB.First(&aspek, newPoinAspek.AspekID).Error; err != nil {
-        c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid aspek_id"})
-        return
-    }
+	// Validasi setiap field yang wajib diisi
+	if newPoinAspek.NamaPoin == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Nama point harus diisi"})
+		return
+	}
+	if newPoinAspek.AspekID == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Aspek ID harus diisi"})
+		return
+	}
 
-    db.DB.Create(&newPoinAspek)
-    c.JSON(http.StatusOK, newPoinAspek)
+	// Lakukan validasi tambahan jika diperlukan
+
+	db.DB.Create(&newPoinAspek)
+	c.JSON(http.StatusOK, newPoinAspek)
 }
 
 // UpdatePoinAspek untuk memperbarui poin_aspek yang ada

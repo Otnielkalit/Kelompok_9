@@ -3,10 +3,13 @@
 package handlers
 
 import (
-	"github.com/gin-gonic/gin"
-	"Rest-Api/models"
 	"Rest-Api/db"
+	"Rest-Api/models"
 	"fmt"
+	"net/http"
+	"time"
+
+	"github.com/gin-gonic/gin"
 )
 
 // GetKelasList handles the GET /kelas endpoint
@@ -28,13 +31,29 @@ func GetKelasByID(c *gin.Context) {
 	}
 }
 
-// CreateKelas handles the POST /kelas endpoint
 func CreateKelas(c *gin.Context) {
-	var kelas models.Kelas
-	c.BindJSON(&kelas)
+	var newKelas models.Kelas
+	if err := c.ShouldBindJSON(&newKelas); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid input: " + err.Error()})
+		return
+	}
 
-	db.DB.Create(&kelas)
-	c.JSON(200, kelas)
+	// Validasi setiap field yang wajib diisi
+	if newKelas.NamaKelas == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Nama kelas harus diisi"})
+		return
+	}
+	if newKelas.Kode == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Kode kelas harus diisi"})
+		return
+	}
+
+	currentTime := time.Now()
+	newKelas.CreatedAt = currentTime
+	newKelas.UpdatedAt = currentTime
+
+	db.DB.Create(&newKelas)
+	c.JSON(http.StatusOK, newKelas)
 }
 
 // UpdateKelas handles the PUT /kelas/:id endpoint

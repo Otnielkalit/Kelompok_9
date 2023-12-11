@@ -27,7 +27,6 @@ class KelasPage extends Page {
     get btnSubmit() {
         return $('button[id="tambah"]');
     }
-
     newData(kode) {
         // const combinedSelector = $$(`//span[contains(text(), "${nama}")], //span[contains(text(),"${nama_kelas}")]`);
         // const selector = `//table//span[contains(text(), "${kode}")]`;

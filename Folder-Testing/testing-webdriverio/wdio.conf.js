@@ -22,9 +22,9 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        // './test/specs/api/*.spec.js'
+        './test/specs/api/*.spec.js'
         // './test/specs/user-interface/test.addKelas.js'
-        './test/specs/user-interface/test.addPenilaian.js'
+        // './test/specs/user-interface/test.addPenilaian.js'
         // './test/specs/user-interface/test.addKegiatan.js'
         //'./test/specs/user-interface/test.loginAdmin.js'
 

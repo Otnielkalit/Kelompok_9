@@ -30,5 +30,4 @@ describe('Add new class', () => {
         await expect(KelasPage.newData('1008')).toBeDisplayed()
     })
 
-
 })

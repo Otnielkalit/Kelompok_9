@@ -26,8 +26,10 @@ return new class extends Migration
             $table->string('poto')->nullable()->default(null);
             $table->string('agama')->nullable()->default(null);
             $table->unsignedBigInteger('kelas_id');
-        $table->index('kelas_id');
-        $table->foreign('kelas_id')->references('id')->on('kelas')->onDelete('cascade');
+          
+        //Table Kelas Tidak ada
+        // $table->index('kelas_id');
+        // $table->foreign('kelas_id')->references('id')->on('kelas')->onDelete('cascade');
             // $table->string('kelas')->nullable()->default(null);
             $table->text('alamat')->nullable()->default(null);
             $table->timestamps();

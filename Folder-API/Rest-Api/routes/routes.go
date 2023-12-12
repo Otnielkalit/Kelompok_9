@@ -4,6 +4,7 @@ package routes
 
 import (
 	"Rest-Api/api/handlers"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -37,15 +38,24 @@ func SetupRouter() *gin.Engine {
 		kegiatan.PUT("/:id", handlers.UpdateKegiatan)
 	}
 
-    poinAspek := r.Group("/poin-aspek")
-    {
-        poinAspek.GET("/", handlers.GetAllPoinAspek)
-        poinAspek.GET("/:id", handlers.GetPoinAspekByID)
-        poinAspek.POST("/", handlers.CreatePoinAspek)
-        poinAspek.PUT("/:id", handlers.UpdatePoinAspek)
-        poinAspek.DELETE("/:id", handlers.DeletePoinAspek)
-    }
+	poinAspek := r.Group("/poin-aspek")
+	{
+		poinAspek.GET("/", handlers.GetAllPoinAspek)
+		poinAspek.GET("/:id", handlers.GetPoinAspekByID)
+		poinAspek.POST("/", handlers.CreatePoinAspek)
+		poinAspek.PUT("/:id", handlers.UpdatePoinAspek)
+		poinAspek.DELETE("/:id", handlers.DeletePoinAspek)
+	}
 
+	// Menambahkan rute untuk siswa
+	siswa := r.Group("/siswa")
+	{
+		siswa.GET("/", handlers.GetSiswas)
+		siswa.GET("/:id", handlers.GetSiswa)
+		siswa.POST("/", handlers.CreateSiswa)
+		siswa.PUT("/:id", handlers.UpdateSiswa)
+		siswa.DELETE("/:id", handlers.DeleteSiswa)
+	}
 
 	return r
 }

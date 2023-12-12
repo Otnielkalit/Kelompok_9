@@ -5,7 +5,7 @@ describe('Testing API Hapus aspek', () => {
   // Test penghapusan aspek
   it('should delete a aspek successfully', async () => {
     try {
-      const classIdToDelete = '47';
+      const classIdToDelete = '54';
 
       const deleteUrl = `http://localhost:8081/aspek/${classIdToDelete}`;
       const response = await axios.delete(deleteUrl);

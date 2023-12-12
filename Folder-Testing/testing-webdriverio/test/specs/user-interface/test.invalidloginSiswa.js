@@ -1,5 +1,5 @@
 const { expect } = require('@wdio/globals')
-const LoginPage = require('../../pageobjects/loginGuru.page')
+const LoginPage = require('../../pageobjects/loginSiswa.page')
 
 describe('My Login application', () => {
     // ... (test cases for valid credentials)

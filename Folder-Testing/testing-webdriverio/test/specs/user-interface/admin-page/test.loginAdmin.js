@@ -12,25 +12,3 @@ describe('My Login application', () => {
         await expect(LoginPage.txtDasboard).toBeDisplayed()
     })
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,1 +1,1 @@
-{"total":1,"items":[]}
+{"total":3,"items":[{"uid":"1e569911a0dd59e08749749da60112c5","name":"My Login application","statistic":{"failed":2,"broken":2,"skipped":0,"passed":3,"unknown":0,"total":7}},{"uid":"242c533f6dbdd2109c1a9ef7a341a680","name":"Add new class","statistic":{"failed":0,"broken":0,"skipped":0,"passed":8,"unknown":0,"total":8}}]}

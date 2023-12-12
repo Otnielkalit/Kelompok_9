@@ -2,7 +2,7 @@ const LoginPage = require('../../../pageobjects/loginGuru.page')
 const AddSiswaPage = require('../../../pageobjects/addSiswa.page')
 const addSiswaPage = require('../../../pageobjects/addSiswa.page')
 
-describe('Add new class', () => {
+describe('Add new Account Siswa', () => {
     it('should login with valid credentials', async () => {
         await LoginPage.open()
         await LoginPage.login('admin', '121212')

@@ -23,7 +23,7 @@ class PenilaianPage extends Page {
     selectFirstAspek() {
         this.aspekDropdown.click();
         this.aspekDropdown.waitForDisplayed();
-        const firstOption = this.aspekDropdown.$('option:nth-child(2)'); // Adjust the index accordingly
+        const firstOption = this.aspekDropdown.$('option:nth-child(2)');
         firstOption.click();
     }
 

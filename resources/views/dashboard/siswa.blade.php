@@ -19,7 +19,7 @@
             border: none;
             color:#ffffff;
         }
-        
+
     </style>
 </head>
 @if ($errors->any())
@@ -201,14 +201,14 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            {{-- <div class="row">
                 <h6>Foto</h6>
                 <div class="col-md-4">
                     <div class="input-group input-group-outline my-3">
-                        <input id="photo" name="photo" type="file" accept=".png, .jpeg, .jpg" class="form-control" required>
+                        <input id="photo" name="photo" type="file" accept=".png, .jpeg, .jpg" class="form-control">
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="row">
                 <h6>Biodata</h6>
                 <div class="col-md-4">
@@ -260,7 +260,7 @@
                 <div class="col-md-4">
                     <div class="input-group input-group-static mb-4">
                         <label for="kelas" class="ms-0">Kelas</label>
-                        <select name="kelas_id" class="form-control" id="kelas" reuired>
+                        <select name="kelas_id" class="form-control" id="dropdown-kelas" reuired>
                             <option value="">Pilih Kelas</option>
                             @if(count($kelass) > 0)
                             @foreach($kelass as $kelas)
@@ -293,7 +293,7 @@
             </div>
             <div class="row my-4">
                 <div class="col-md-4">
-                    <button type="submit" class="btn btn-info">Submit</button>
+                    <button type="submit" class="btn btn-info" id="tambah-siswa">Submit</button>
                     <button type="reset" class="btn btn-secondary">Reset</button>
                 </div>
             </div>
@@ -305,7 +305,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">
- 
+
      $('.show_confirm').click(function(event) {
           var form =  $(this).closest("form");
           var name = $(this).data("name");
@@ -323,7 +323,7 @@
             }
           });
       });
-  
+
 </script>
 
 @endsection

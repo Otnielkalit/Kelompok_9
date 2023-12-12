@@ -5,7 +5,7 @@ describe('Testing API Update Aspek', () => {
   it('should update a aspek successfully', async () => {
     try {
       // ID kelas yang akan diupdate
-      const classIdToUpdate = '49';
+      const classIdToUpdate = '54';
 
       // Data yang akan digunakan untuk update kelas
       const updatedData = {

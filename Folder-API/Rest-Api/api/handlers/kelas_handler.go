@@ -1,5 +1,3 @@
-// api/handlers/kelas_handler.go
-
 package handlers
 
 import (
@@ -8,11 +6,9 @@ import (
 	"fmt"
 	"net/http"
 	"time"
-
 	"github.com/gin-gonic/gin"
 )
 
-// GetKelasList handles the GET /kelas endpoint
 func GetKelasList(c *gin.Context) {
 	var kelas []models.Kelas
 	db.DB.Find(&kelas)
@@ -20,7 +16,6 @@ func GetKelasList(c *gin.Context) {
 	c.JSON(200, kelas)
 }
 
-// GetKelasByID handles the GET /kelas/:id endpoint
 func GetKelasByID(c *gin.Context) {
 	id := c.Params.ByName("id")
 	var kelas models.Kelas

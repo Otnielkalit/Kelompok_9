@@ -1,8 +1,6 @@
 /node_modules
-WebdriverIO/node_modules
-/Folder-Testing/testing-webdiver-api-kelas/node_modules
-/Folder-Testing/testing-webdiver-api-kelas/allure-report
-/Folder-Testing/
+/Folder-Testing/testing-webdriverio/node_modules
+/Folder-Testing/testing-webdriverio/allure-results
 /public/build
 /public/hot
 /public/storage

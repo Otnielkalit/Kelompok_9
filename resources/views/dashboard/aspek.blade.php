@@ -20,7 +20,7 @@
             border: none;
             color:#ffffff;
         }
-        
+
     </style>
 </head>
 
@@ -49,7 +49,7 @@
                         <button type="submit" class="material-icons" id="cari">search</button>
                     </div>
                 </div> --}}
-        {{-- </form> --}} 
+        {{-- </form> --}}
         <div class="table-responsive p-0">
             <table class="table align-items-center justify-content-center mb-0">
                 <thead>
@@ -162,7 +162,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">
- 
+
      $('.show_confirm').click(function(event) {
           var form =  $(this).closest("form");
           var name = $(this).data("name");
@@ -180,7 +180,7 @@
             }
           });
       });
-  
+
 </script>
 <script>
     @if(Session::has('message'))
@@ -193,7 +193,7 @@
             case 'success':
                 toastr.success("{{ Session::get('message') }}");
                 break;
-            
+
             case 'error':
                 toastr.error("{{ Session::get('message') }}");
                 break;

@@ -2,7 +2,7 @@ const { expect } = require('@wdio/globals')
 const LoginPage = require('../../../pageobjects/loginGuru.page')
 
 
-describe('My Login application', () => {
+describe('Login Guru account', () => {
     it('should login with valid credentials', async () => {
         await LoginPage.open()
         await LoginPage.login('guru', 'guru123')

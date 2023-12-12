@@ -24,6 +24,10 @@ class LoginGuru extends Page {
         return $('//*[@id="navbarBlur"]/div/nav/h6')
     }
 
+    get txtSignIn(){
+        return $('/html/body/main/div[1]/div/div/div/div/div[1]/div/h4');
+    }
+
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password

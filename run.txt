@@ -1,0 +1,27 @@
+Untuk Menjalankan login UI invalid
+npm run wdio -- --spec ./test/specs/user-interface/test-invalid/guru/login/test.emptyPassword.js
+
+
+Login admin
+npm run wdio -- --spec ./test/specs/user-interface/admin-page/test.loginAdmin.js
+
+Login guru
+npm run wdio -- --spec ./test/specs/user-interface/guru-page/test.loginAdmin.js
+
+Login siswa
+npm run wdio -- --spec ./test/specs/user-interface/siswa-page/test.loginSiswa.js
+
+Menjalankan Allure report untuk UI
+1. allure generate ./allure-results --clean -o ./allure-report
+2. allure open ./allure-report
+
+
+
+
+Menjalankan tes api
+npx mocha ./test/specs/api/poin-aspek/testTambahPoinAspek.spec.js
+
+Menjalankan Allure report untuk Api
+1. npx mocha --reporter mocha-allure-reporter --reporter-options allure_result_dir=./allure-results ./test/specs/api/poin-aspek/testTambahPoinAspek.spec.js
+2. allure generate ./allure-results --clean -o ./allure-report
+3. allure open ./allure-report

@@ -1,5 +1,5 @@
-const LoginGuru = require('../../pageobjects/loginGuru.page')
-const PenilaianPage = require('../../pageobjects/pointPenilaian.page')
+const LoginGuru = require('../../../pageobjects/loginGuru.page')
+const PenilaianPage = require('../../../pageobjects/pointPenilaian.page')
 
 describe('Add new class', () => {
     it('should login with valid credentials', async () => {

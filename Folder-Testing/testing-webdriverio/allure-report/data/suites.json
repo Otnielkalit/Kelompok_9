@@ -1,1 +1,1 @@
-{"uid":"98d3104e051c652961429bf95fa0b5d6","name":"suites","children":[]}
+{"uid":"98d3104e051c652961429bf95fa0b5d6","name":"suites","children":[{"name":"Testing API","children":[{"name":"should return expected response","uid":"28c4cfb424a285c4","parentUid":"d6c75d9f409f458e814a992a44f23c0a","status":"passed","time":{"start":1702346205834,"stop":1702346205872,"duration":38},"flaky":false,"newFailed":false,"newPassed":false,"newBroken":false,"retriesCount":0,"retriesStatusChange":false,"parameters":[],"tags":[]}],"uid":"d6c75d9f409f458e814a992a44f23c0a"}]}

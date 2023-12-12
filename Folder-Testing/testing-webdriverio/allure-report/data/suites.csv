@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Dec 12 08:56:45 WIB 2023","Tue Dec 12 08:56:45 WIB 2023","38","","Testing API","","Testing API","should return expected response","should return expected response",""

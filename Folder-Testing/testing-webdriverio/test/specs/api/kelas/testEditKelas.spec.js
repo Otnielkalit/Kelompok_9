@@ -1,7 +1,7 @@
 const axios = require('axios');
 const { expect } = require('chai');
 
-describe('Testing API Update Kelas', () => {
+describe('Testing API Edit Kelas', () => {
   it('should update a class successfully', async () => {
     try {
       // ID kelas yang akan diupdate

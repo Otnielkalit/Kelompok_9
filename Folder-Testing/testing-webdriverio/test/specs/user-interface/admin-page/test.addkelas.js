@@ -1,5 +1,5 @@
-const LoginPage = require('../../pageobjects/loginAdmin.page')
-const KelasPage = require('../../pageobjects/kelas.page')
+const LoginPage = require('../../../pageobjects/loginAdmin.page')
+const KelasPage = require('../../../pageobjects/kelas.page')
 
 describe('Add new class', () => {
     it('should login with valid credentials', async () => {

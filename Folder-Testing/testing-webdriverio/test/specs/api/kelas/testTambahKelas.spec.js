@@ -1,7 +1,7 @@
 const axios = require('axios');
 const { expect } = require('chai');
 
-describe('Testing API', () => {
+describe('Testing API Tambah Kelas', () => {
   it('should return expected response', async () => {
     try {
       const apiUrl = 'http://localhost:8081/kelas';

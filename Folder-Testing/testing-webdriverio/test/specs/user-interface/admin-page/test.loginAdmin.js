@@ -1,5 +1,5 @@
 const { expect } = require('@wdio/globals')
-const LoginPage = require('../../pageobjects/loginAdmin.page')
+const LoginPage = require('../../../pageobjects/loginAdmin.page')
 
 
 describe('My Login application', () => {

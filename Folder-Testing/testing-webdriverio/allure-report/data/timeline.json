@@ -1,1 +1,1 @@
-{"uid":"ab17fc5a4eb3bca4b216b548c7f9fcbc","name":"timeline","children":[]}
+{"uid":"ab17fc5a4eb3bca4b216b548c7f9fcbc","name":"timeline","children":[{"name":"should return expected response","uid":"28c4cfb424a285c4","parentUid":"ab17fc5a4eb3bca4b216b548c7f9fcbc","status":"passed","time":{"start":1702346205834,"stop":1702346205872,"duration":38},"flaky":false,"newFailed":false,"newPassed":false,"newBroken":false,"retriesCount":0,"retriesStatusChange":false,"parameters":[],"tags":[]}]}

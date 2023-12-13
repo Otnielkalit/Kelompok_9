@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//table//tbody//td[2][contains(text(), \"2\")]/ancestor::tr"
+}

@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//td[contains(text(), \"yennnnnnn\")]//parent::tr//a[@id=\"lihat-nilai\"]"
+}

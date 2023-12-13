@@ -143,7 +143,7 @@
             </div>
             <div class="row my-4">
                 <div class="col-md-4">
-                    <button type="submit" class="btn btn-info">Submit</button>
+                    <button type="submit" class="btn btn-info" id="btnAdd">Submit</button>
                     <button type="reset" class="btn btn-secondary">Reset</button>
                 </div>
             </div>

@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "button[data-bs-target=\"#tambah_data\"]"
+}

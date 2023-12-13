@@ -1,7 +1,7 @@
 const LoginGuru = require('../../../pageobjects/loginGuru.page')
 const PenilaianPage = require('../../../pageobjects/pointPenilaian.page')
 
-describe('Add new class', () => {
+describe('Add penilaian in guru page', () => {
     it('should login with valid credentials', async () => {
         await LoginGuru.open()
         await LoginGuru.login('guru', 'guru123')

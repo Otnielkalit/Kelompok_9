@@ -18,7 +18,7 @@
             border: none;
             color:#ffffff;
         }
-        
+
     </style>
 </head>
 
@@ -98,7 +98,7 @@
                         </td>
                         <td class="align-middle d-flex">
                             @if(Auth::user()->role === 'guru')
-                            <a href="{{ url('nilai/'.$user->id) }}" class="btn btn-link text-primary mb-0">
+                            <a href="{{ url('nilai/'.$user->id) }}" class="btn btn-link text-primary mb-0" id="lihat-nilai">
                                 Lihat Nilai
                             </a>
                             @endif

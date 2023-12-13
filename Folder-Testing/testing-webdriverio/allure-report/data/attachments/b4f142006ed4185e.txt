@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//table[contains(text(), \"12\")]"
+}

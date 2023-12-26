@@ -7,6 +7,10 @@ describe('Login with invalid username', () => {
         await LoginGuru.login('adminawdaw', 'guru123')
     })
 
+    it('I get message error Username atau password salah.', async () => {
+        await expect(LoginGuru.inputUsername).toBeDisplayed()
+    })
+
     it('I Failed to enter the admin dashboard page', async () => {
         await expect(LoginGuru.txtSignIn).toBeDisplayed()
     })

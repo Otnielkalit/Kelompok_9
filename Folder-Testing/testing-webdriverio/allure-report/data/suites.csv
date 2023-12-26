@@ -1,4 +1,4 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"failed","Sun Dec 24 23:39:08 WIB 2023","Sun Dec 24 23:39:18 WIB 2023","10215","","Login with empty password","","","","Show message error password tidak boleh kosong",""
-"passed","Sun Dec 24 23:39:05 WIB 2023","Sun Dec 24 23:39:08 WIB 2023","2849","","Login with empty password","","","","I input username and empty password",""
-"passed","Sun Dec 24 23:39:18 WIB 2023","Sun Dec 24 23:39:18 WIB 2023","50","","Login with empty password","","","","I Failed to enter the admin dashboard page",""
+"broken","Tue Dec 26 19:24:36 WIB 2023","Tue Dec 26 19:24:38 WIB 2023","1974","","My Login application","","","","should show error for both invalid username and password",""
+"broken","Tue Dec 26 19:24:34 WIB 2023","Tue Dec 26 19:24:36 WIB 2023","2037","","My Login application","","","","should show error for invalid password",""
+"broken","Tue Dec 26 19:24:30 WIB 2023","Tue Dec 26 19:24:34 WIB 2023","3753","","My Login application","","","","should show error for invalid username",""

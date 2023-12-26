@@ -50,7 +50,6 @@ class AddSiswaPage extends Page {
     }
 
     selectAgama() {
-        this.agamaDropdown.waitForDisplayed();
         this.agamaDropdown.click();
         const kristenOption = $(`#agama option[value="kristen"]`);
         kristenOption.waitForDisplayed();

@@ -30,8 +30,7 @@
                                     <div id="error-message" class="alert alert-danger" style="display: none;"></div>
                                     <div class="text-center">
                                         <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2"
-                                            id="sign">Sign
-                                            in</button>
+                                            id="sign">Sign in</button>
                                     </div>
                                     <p class="mt-4 text-sm text-center">
                                         Belum punya akun?<br>
@@ -45,7 +44,7 @@
             </div>
         </div>
     </main>
-    <script>
+    {{-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             const signInForm = document.getElementById('login-form');
             const errorDiv = document.getElementById('error-message');
@@ -74,5 +73,5 @@
                 errorDiv.textContent = message;
             }
         });
-    </script>
+    </script> --}}
 @endsection

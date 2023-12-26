@@ -1,5 +1,0 @@
-{
-  "error": "no such element",
-  "message": "no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//div[contains(@class, \"alert-danger\")][contains(text(), \"Password tidak boleh kosong\")]\"}\n  (Session info: chrome=120.0.6099.111)",
-  "stacktrace": "\tGetHandleVerifier [0x00007FF7E3AA2142+3514994]\n\t(No symbol) [0x00007FF7E36C0CE2]\n\t(No symbol) [0x00007FF7E35676AA]\n\t(No symbol) [0x00007FF7E35B1860]\n\t(No symbol) [0x00007FF7E35B197C]\n\t(No symbol) [0x00007FF7E35F4EE7]\n\t(No symbol) [0x00007FF7E35D602F]\n\t(No symbol) [0x00007FF7E35F28F6]\n\t(No symbol) [0x00007FF7E35D5D93]\n\t(No symbol) [0x00007FF7E35A4BDC]\n\t(No symbol) [0x00007FF7E35A5C64]\n\tGetHandleVerifier [0x00007FF7E3ACE16B+3695259]\n\tGetHandleVerifier [0x00007FF7E3B26737+4057191]\n\tGetHandleVerifier [0x00007FF7E3B1E4E3+4023827]\n\tGetHandleVerifier [0x00007FF7E37F04F9+689705]\n\t(No symbol) [0x00007FF7E36CC048]\n\t(No symbol) [0x00007FF7E36C8044]\n\t(No symbol) [0x00007FF7E36C81C9]\n\t(No symbol) [0x00007FF7E36B88C4]\n\tBaseThreadInitThunk [0x00007FFCB9B4257D+29]\n\tRtlUserThreadStart [0x00007FFCBBD2AA58+40]\n"
-}

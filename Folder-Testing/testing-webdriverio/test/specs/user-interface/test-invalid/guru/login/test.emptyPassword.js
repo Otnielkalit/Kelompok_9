@@ -7,6 +7,10 @@ describe('Login with empty password', () => {
         await LoginGuru.login('guru', '')
     })
 
+    it('I get message error Password tidak boleh kosong.', async () => {
+        await expect(LoginGuru.errorPasswordEmpty).toBeDisplayed()
+    })
+
     it('I Failed to enter the guru dashboard page', async () => {
         await expect(LoginGuru.txtSignIn).toBeDisplayed()
     })

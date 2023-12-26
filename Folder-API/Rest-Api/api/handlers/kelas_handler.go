@@ -76,10 +76,8 @@ func CreateKelas(c *gin.Context) {
 		return
 	}
 
-	// Check if the NamaKelas or Kode already exists
 	var existingKelas models.Kelas
 	if err := db.DB.Where("nama_kelas = ? OR kode = ?", newKelas.NamaKelas, newKelas.Kode).First(&existingKelas).Error; err == nil {
-		// Data already exists
 		response := Response{
 			Status:  http.StatusConflict,
 			Message: "Data sudah ada dalam basis data",

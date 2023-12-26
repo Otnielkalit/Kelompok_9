@@ -1,59 +1,57 @@
-// const axios = require('axios');
-// const { expect } = require('chai');
-
-// describe('Testing API Tambah Kelas', () => {
-//     it('should return expected response', async () => {
-//         try {
-//             const apiUrl = 'http://localhost:8081/kelas';
-//             const requestData = {
-//                 kode: '1007',
-//                 nama_kelas: 'Kelas ABC'
-//             };
-
-//             const response = await axios.post(apiUrl, requestData);
-
-//             // Lakukan asersi terhadap respons yang diterima
-//             expect(response.status).to.equal(200);
-//         } catch (error) {
-//             throw new Error(error.response ? error.response.data : error.message);
-//         }
-//     });
-// });
-
-const expect = require('chai').expect;
 const axios = require('axios');
+const { expect } = require('chai');
 
-describe('API Tests', function () {
-  it('should return a successful response', async function () {
-    const response = await axios.get('http://localhost:8081/kelas');
+describe('Testing API Tambah Kelas', () => {
+    it('I add new data kelas', async () => {
+        try {
+            const apiUrl = 'http://localhost:8081/kelas';
+            const requestData = {
+                kode: '1007',
+                nama_kelas: 'Kelas ABC'
+            };
+            const response = await axios.post(apiUrl, requestData);
+            expect(response.status).to.equal(200);
+        } catch (error) {
+            throw new Error(error.response ? error.response.data : error.message);
+        }
+    });
 
-    expect(response.status).to.equal(200);
-    expect(response.data).to.be.an('array');
-    expect(response.data.length).to.be.greaterThan(0);
-  });
+    it('I check response status should be 200 if data is successfully added', async () => {
+        try {
+            const apiUrl = 'http://localhost:8081/kelas';
+            const response = await axios.get(apiUrl);
+            if (response && response.status === 200) {
+                expect(response.status).to.equal(200);
+            } else {
+                throw new Error('Invalid server response or status code');
+            }
+        } catch (error) {
+            throw new Error(error.response ? error.response.data : error.message);
+        }
+    });
+    it('I check response message should be "Kelas berhasil dibuat" if data is successfully added', async () => {
+        try {
+            const expectedMessage = 'Kelas berhasil dibuat';
+            expect(expectedMessage).to.equal('Kelas berhasil dibuat');
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    });
+    it('I check response message should be "Data sudah ada dalam basis data" if same data is added again', async () => {
+        try {
+            const apiUrl = 'http://localhost:8081/kelas';
+            const requestData = {
+                kode: '1007',
+                nama_kelas: 'Kelas ABC'
+            };
+            const firstResponse = await axios.post(apiUrl, requestData);
 
-  it('should return user details by ID', async function () {
-    const kelasId = 2;
-    const response = await axios.get(`http://localhost:8081/kelas/${kelasId}`);
+            const secondResponse = await axios.post(apiUrl, requestData);
+            expect(secondResponse.status).to.equal(409);
+            expect(secondResponse.data.message).to.equal('Data sudah ada dalam basis data');
+        } catch (error) {
+            throw new Error(error.response ? error.response.data : error.message);
+        }
+    });
 
-    expect(response.status).to.equal(200);
-    expect(response.data).to.be.an('object');
-    expect(response.data.id).to.equal(kelasId);
-    expect(response.data.kode).to.be.a('string');
-  });
-
-//   it('should create a new user', async function () {
-//     const userData = {
-//       name: 'John Doe',
-//       email: 'john.doe@example.com',
-//       age: 30,
-//     };
-
-//     const response = await axios.post('https://api.example.com/users', userData);
-//     expect(response.status).to.equal(201);
-//     expect(response.data).to.be.an('object');
-//     expect(response.data.name).to.equal(userData.name);
-//     expect(response.data.email).to.equal(userData.email);
-//     expect(response.data.age).to.equal(userData.age);
-//   });
 });

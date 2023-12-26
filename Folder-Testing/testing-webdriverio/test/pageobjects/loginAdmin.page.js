@@ -18,7 +18,27 @@ class LoginPage extends Page {
         return $('//*[@id="navbarBlur"]/div/nav/h6');
     }
 
-    get txtSignIn(){
+    get errorPasswordEmpty() {
+        return $('//div[contains(@class, "alert-danger")][contains(text(), "Password tidak boleh kosong")]');
+    }
+
+    get errorUsernameEmpty() {
+        return $('//div[contains(@class, "alert-danger")][contains(text(), "Username tidak boleh kosong")]');
+    }
+
+    get errorBothEmpty() {
+        return $('//div[contains(@class, "alert-danger")][contains(text(), "Username dan password tidak boleh kosong")]');
+    }
+
+    get errorPasswordIncorrect() {
+        return $('//div[contains(@class, "alert-danger")][contains(text(), "Username atau password salah")]');
+    }
+
+    get errorUsernameIncorrect() {
+        return $('//div[contains(@class, "alert-danger")][contains(text(), "Username atau password salah")]');
+    }
+
+    get txtSignIn() {
         return $('/html/body/main/div[1]/div/div/div/div/div[1]/div/h4');
     }
 

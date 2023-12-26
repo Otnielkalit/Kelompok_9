@@ -7,6 +7,10 @@ describe('Login with empty password', () => {
         await LoginPage.login('admin', '')
     })
 
+    it('Show message error password tidak boleh kosong', async () => {
+        await expect(LoginPage.errorPasswordEmpty).toBeDisplayed()
+    })
+
     it('I Failed to enter the admin dashboard page', async () => {
         await expect(LoginPage.txtSignIn).toBeDisplayed()
     })

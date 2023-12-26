@@ -24,8 +24,6 @@ func CreateKegiatan(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid input: " + err.Error()})
 		return
 	}
-
-	// Validasi setiap field yang wajib diisi
 	if newKegiatan.Title == "" {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Title harus diisi"})
 		return

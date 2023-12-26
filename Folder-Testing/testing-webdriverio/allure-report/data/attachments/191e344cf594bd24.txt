@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//div[contains(@class, \"alert-danger\")][contains(text(), \"Password tidak boleh kosong\")]"
+}

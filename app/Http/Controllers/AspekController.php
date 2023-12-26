@@ -42,18 +42,18 @@ public function aspek() {
             'kode.unique' => 'Kode aspek sudah ada',
             'kelas_id.required' => 'Kelas harus diisi',
         ]);
-    
+
         $aspek = Aspek::create([
             'nama_aspek' => $request->nama_aspek,
             'kode' => $request->kode,
             'kelas_id' => $request->kelas_id,
         ]);
-    
+
         $notification = array(
             'message' => 'Berhasil menambahkan data aspek!',
             'alert-type' => 'success'
         );
-    
+
         return redirect('aspek')->with($notification);
     }
 
@@ -64,14 +64,14 @@ public function aspek() {
         return redirect('aspek')->with('success', 'Berhasil menghapus data aspek!');
     }
 
-    
+
     public function aspekEdit_view($aspek_id) {
         $aspek = Aspek::find($aspek_id);
-        $kelass = Kelas::all(); 
-    
+        $kelass = Kelas::all();
+
         return view('dashboard.aspek_edit', ['aspek' => $aspek, 'kelass' => $kelass]);
     }
-    
+
 
     public function aspekEdit_action(Request $request, $aspek_id)
 {
@@ -110,15 +110,15 @@ public function cariAspek(Request $request)
 	{
 		// menangkap data pencarian
 		$cariAspek = $request->cari;
- 
+
     		// mengambil data dari table pegawai sesuai pencarian data
 		$aspeks = DB::table('aspek')
 		->where('kode','like',"%".$cariAspek."%")
         ->orWhere('nama_aspek','like',"%".$cariAspek."%")
 		->paginate();
- 
+
     		// mengirim data pegawai ke view index
             return view('dashboard.aspek', ['aspeks' => $aspeks]);
- 
+
 	}
 }

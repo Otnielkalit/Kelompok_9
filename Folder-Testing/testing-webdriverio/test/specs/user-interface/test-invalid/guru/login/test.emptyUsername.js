@@ -7,6 +7,10 @@ describe('Login with empty username ', () => {
         await LoginGuru.login('', 'guru123')
     })
 
+    it('I get message error Username tidak boleh kosong.', async () => {
+        await expect(LoginGuru.errorUsernameEmpty).toBeDisplayed()
+    })
+
     it('I Failed to enter the guru dashboard page', async () => {
         await expect(LoginGuru.txtSignIn).toBeDisplayed()
     })

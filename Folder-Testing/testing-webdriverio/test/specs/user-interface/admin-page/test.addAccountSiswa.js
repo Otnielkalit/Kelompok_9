@@ -1,6 +1,7 @@
 const LoginPage = require('../../../pageobjects/loginGuru.page')
 const AddSiswaPage = require('../../../pageobjects/addSiswa.page')
 const addSiswaPage = require('../../../pageobjects/addSiswa.page')
+// const addSiswaPage = require('../../../pageobjects/addSiswa.page')
 
 describe('Add new Account Siswa', () => {
     it('should login with valid credentials', async () => {
@@ -60,10 +61,10 @@ describe('Add new Account Siswa', () => {
 
     it('Click Agama Drop Down', async () => {
         await AddSiswaPage.agamaDropdown.click();
-        browser.pause(5000)
     });
 
     it('Click Agama Kristen in drop down agama', async () => {
+        await addSiswaPage.agamaDropdown.waitForDisplayed();
         await AddSiswaPage.selectAgama();
         browser.pause(5000)
     });
@@ -78,11 +79,6 @@ describe('Add new Account Siswa', () => {
         browser.pause(30000)
     })
 
-    it('Input Nama Ayah', async () => {
-        await AddSiswaPage.inputNamaIbu('Cita Citata')
-        browser.pause(30000)
-    })
-
     it('Input Alamat', async () => {
         await AddSiswaPage.inputAlamat('Narumonda Masuk dalam belok kiri rumah hijau agak berabu')
         browser.pause(30000)
@@ -93,9 +89,4 @@ describe('Add new Account Siswa', () => {
         await AddSiswaPage.btnSubmit.click();
         browser.pause(30000);
     });
-
-    // it('Succes Register account siswa', async () => {
-    //     await expect(KelasPage.newData('anita')).toBeDisplayed()
-    // })
-
 })

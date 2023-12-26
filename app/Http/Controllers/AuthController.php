@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -14,14 +15,16 @@ class AuthController extends Controller
         ]);
 
         $credentials = $request->only('username', 'password');
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard')
-                ->withSuccess('Logged-in');
-        }
+        Log::info('Credentials: ' . json_encode($credentials));
 
-        return back()->withErrors([
-            'password' => 'Wrong username or password',
-        ]);
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('dashboard')->withSuccess('Logged-in');
+        } else {
+            Log::info('Login attempt failed');
+            return back()->withErrors([
+                'password' => 'Wrong username or password',
+            ]);
+        }
     }
 
     public function logout(Request $request) {

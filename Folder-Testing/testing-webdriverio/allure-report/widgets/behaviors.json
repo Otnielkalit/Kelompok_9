@@ -1,1 +1,1 @@
-{"total":2,"items":[{"uid":"242c533f6dbdd2109c1a9ef7a341a680","name":"Add new class","statistic":{"failed":0,"broken":1,"skipped":0,"passed":16,"unknown":2,"total":19}},{"uid":"de43c62a6626e972438d82817a9ccf12","name":"Add penilaian siswa detail","statistic":{"failed":0,"broken":0,"skipped":0,"passed":20,"unknown":1,"total":21}}]}
+{"total":1,"items":[{"uid":"97a8cf86955b782a31da8d0083843b44","name":"Login with empty password","statistic":{"failed":1,"broken":0,"skipped":0,"passed":2,"unknown":0,"total":3}}]}

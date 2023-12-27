@@ -1,5 +1,3 @@
-// api/handlers/aspek_handler.go
-
 package handlers
 
 import (
@@ -13,36 +11,31 @@ import (
 )
 
 func CreateAspek(c *gin.Context) {
-    var newAspek models.Aspek
-    if err := c.ShouldBindJSON(&newAspek); err != nil {
-        // Log kesalahan dalam binding data
-        fmt.Println("Error binding JSON:", err.Error())
+	var newAspek models.Aspek
+	if err := c.ShouldBindJSON(&newAspek); err != nil {
+		fmt.Println("Error binding JSON:", err.Error())
 
-        c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid input: " + err.Error()})
-        return
-    }
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid input: " + err.Error()})
+		return
+	}
+	if newAspek.NamaAspek == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Nama aspek harus diisi"})
+		return
+	}
+	if newAspek.Kode == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Kode harus diisi"})
+		return
+	}
+	if newAspek.KelasID == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Kelas ID harus diisi"})
+		return
+	}
+	currentTime := time.Now()
+	newAspek.CreatedAt = currentTime
+	newAspek.UpdatedAt = currentTime
 
-    // Cek setiap field yang wajib diisi
-    if newAspek.NamaAspek == "" {
-        c.JSON(http.StatusBadRequest, gin.H{"error": "Nama aspek harus diisi"})
-        return
-    }
-    if newAspek.Kode == "" {
-        c.JSON(http.StatusBadRequest, gin.H{"error": "Kode harus diisi"})
-        return
-    }
-    if newAspek.KelasID == 0 {
-        c.JSON(http.StatusBadRequest, gin.H{"error": "Kelas ID harus diisi"})
-        return
-    }
-
-    // Lanjutkan proses simpan ke database jika semua field wajib diisi
-    currentTime := time.Now()
-    newAspek.CreatedAt = currentTime
-    newAspek.UpdatedAt = currentTime
-
-    db.DB.Create(&newAspek)
-    c.JSON(http.StatusOK, newAspek)
+	db.DB.Create(&newAspek)
+	c.JSON(http.StatusOK, newAspek)
 }
 
 func GetAspekList(c *gin.Context) {
@@ -74,14 +67,12 @@ func UpdateAspek(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid input"})
 		return
 	}
-
 	currentTime := time.Now()
 	updatedAspek.UpdatedAt = currentTime
 
 	db.DB.Model(&aspek).Updates(updatedAspek)
 	c.JSON(http.StatusOK, updatedAspek)
 }
-
 func DeleteAspek(c *gin.Context) {
 	id := c.Params.ByName("id")
 	var aspek models.Aspek

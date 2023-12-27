@@ -31,7 +31,7 @@
 
             <li class="nav-item">
                 <a class="nav-link text-white {{ Route::currentRouteName() === 'siswa' ? 'active bg-gradient-primary' : '' }}"
-                    href="/siswa">
+                    href="/siswa" id="siswa">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">account_circle</i>
                     </div>
@@ -64,7 +64,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ Route::currentRouteName() === 'aspek' ? 'active bg-gradient-primary' : '' }}"
-                    href="/aspek">
+                    href="/aspek" id="aspek">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">post_add</i>
                     </div>
@@ -87,7 +87,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ Route::currentRouteName() === 'nilai' ? 'active bg-gradient-primary' : '' }}"
-                    href="/nilai">
+                    href="/nilai" id="penilaian-siswa">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">text_snippet</i>
                     </div>

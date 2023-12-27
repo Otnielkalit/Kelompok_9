@@ -6,6 +6,10 @@ describe('Login with empty username and password', () => {
         await LoginPage.open()
         await LoginPage.login('', '')
     })
+
+    it('I Get the message error Username dan password tidak boleh kosong.', async () => {
+        await expect(LoginPage.errorBothEmpty).toBeDisplayed()
+    })
     it('I Failed to enter the admin dashboard page', async () => {
         await expect(LoginPage.txtSignIn).toBeDisplayed()
     })

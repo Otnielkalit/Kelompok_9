@@ -4,42 +4,86 @@ import (
 	"Rest-Api/db"
 	"Rest-Api/models"
 	"fmt"
+	"github.com/gin-gonic/gin"
 	"net/http"
 	"time"
-	"github.com/gin-gonic/gin"
 )
+
+type Response struct {
+	Status  int         `json:"status"`
+	Message string      `json:"message"`
+	Data    interface{} `json:"data,omitempty"`
+}
 
 func GetKelasList(c *gin.Context) {
 	var kelas []models.Kelas
 	db.DB.Find(&kelas)
 
-	c.JSON(200, kelas)
+	response := Response{
+		Status:  http.StatusOK,
+		Message: "Daftar kelas berhasil diambil",
+		Data:    kelas,
+	}
+
+	c.JSON(http.StatusOK, response)
 }
 
 func GetKelasByID(c *gin.Context) {
 	id := c.Params.ByName("id")
 	var kelas models.Kelas
 	if err := db.DB.Where("id = ?", id).First(&kelas).Error; err != nil {
-		c.AbortWithStatus(404)
+		response := Response{
+			Status:  http.StatusNotFound,
+			Message: "Kelas tidak ditemukan",
+		}
+		c.JSON(http.StatusNotFound, response)
 	} else {
-		c.JSON(200, kelas)
+		response := Response{
+			Status:  http.StatusOK,
+			Message: "Detail kelas berhasil diambil",
+			Data:    kelas,
+		}
+		c.JSON(http.StatusOK, response)
 	}
 }
 
 func CreateKelas(c *gin.Context) {
 	var newKelas models.Kelas
 	if err := c.ShouldBindJSON(&newKelas); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid input: " + err.Error()})
+		response := Response{
+			Status:  http.StatusBadRequest,
+			Message: "Invalid input: " + err.Error(),
+		}
+		c.JSON(http.StatusBadRequest, response)
 		return
 	}
 
-	// Validasi setiap field yang wajib diisi
 	if newKelas.NamaKelas == "" {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Nama kelas harus diisi"})
+		response := Response{
+			Status:  http.StatusBadRequest,
+			Message: "Nama kelas harus diisi",
+		}
+		c.JSON(http.StatusBadRequest, response)
 		return
 	}
+
 	if newKelas.Kode == "" {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Kode kelas harus diisi"})
+		response := Response{
+			Status:  http.StatusBadRequest,
+			Message: "Kode kelas harus diisi",
+		}
+		c.JSON(http.StatusBadRequest, response)
+		return
+	}
+
+	var existingKelas models.Kelas
+	if err := db.DB.Where("nama_kelas = ? OR kode = ?", newKelas.NamaKelas, newKelas.Kode).First(&existingKelas).Error; err == nil {
+		response := Response{
+			Status:  http.StatusConflict,
+			Message: "Data sudah ada dalam basis data",
+			Data:    existingKelas,
+		}
+		c.JSON(http.StatusConflict, response)
 		return
 	}
 
@@ -48,10 +92,15 @@ func CreateKelas(c *gin.Context) {
 	newKelas.UpdatedAt = currentTime
 
 	db.DB.Create(&newKelas)
-	c.JSON(http.StatusOK, newKelas)
+
+	response := Response{
+		Status:  http.StatusOK,
+		Message: "Kelas berhasil dibuat",
+		Data:    newKelas,
+	}
+	c.JSON(http.StatusOK, response)
 }
 
-// UpdateKelas handles the PUT /kelas/:id endpoint
 func UpdateKelas(c *gin.Context) {
 	id := c.Params.ByName("id")
 	var kelas models.Kelas
@@ -64,8 +113,6 @@ func UpdateKelas(c *gin.Context) {
 	db.DB.Save(&kelas)
 	c.JSON(200, kelas)
 }
-
-// DeleteKelas handles the DELETE /kelas/:id endpoint
 func DeleteKelas(c *gin.Context) {
 	id := c.Params.ByName("id")
 	var kelas models.Kelas

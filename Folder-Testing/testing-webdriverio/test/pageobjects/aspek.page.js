@@ -4,7 +4,7 @@ const Page = require('./page');
 /**
  * sub page containing specific selectors and methods for a specific page
  */
-class KelasPage extends Page {
+class AspekPage extends Page {
     /**
      * define selectors using getter methods
      */
@@ -24,26 +24,28 @@ class KelasPage extends Page {
         return $('input[name="kode"]');
     }
 
-    get fieldKelas() {
-        return $('select[name="kelas_id"]');
+    get clickDropDownd() {
+        return $('select[id="kelas"]');
     }
 
-    get btnSubmit() {
-        return $('button[id="submit"]');
+    selectKelas() {
+        const selectElement = this.clickDropDownd;
+        selectElement.click();
+        const firstOption = $('select[id="kelas"] option:nth-child(2)');
+        firstOption.click();
     }
+    get btnSubmit() {
+        return $('button[id="btnAdd"]');
+    }
+
     newData(kode) {
-        // const combinedSelector = $$(`//span[contains(text(), "${nama}")], //span[contains(text(),"${nama_kelas}")]`);
-        // const selector = `//table//span[contains(text(), "${kode}")]`;
-        // return selector;
         return $$(`//table//span[contains(text(), "${kode}")]`)
     }
 
-    async addKelas(kode, nama_kelas) {
+    async addAspek(nama_aspek, kode) {
+        await this.fieldNamaAspek.setValue(nama_aspek);
         await this.fieldKode.setValue(kode);
-        await this.fieldNamaKelas.setValue(nama_aspek);
-        await this.fieldKelas.setValue(kelas_id);
-        await this.btnSubmit.click();
     }
 }
 
-module.exports = new KelasPage();
+module.exports = new AspekPage();

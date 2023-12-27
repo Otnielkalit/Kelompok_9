@@ -1,7 +1,7 @@
 const LoginPage = require('../../../pageobjects/loginAdmin.page')
 const KelasPage = require('../../../pageobjects/kelas.page')
 
-describe('Add new class', () => {
+describe('Add new kelas', () => {
     it('should login with valid credentials', async () => {
         await LoginPage.open()
         await LoginPage.login('admin', '121212')

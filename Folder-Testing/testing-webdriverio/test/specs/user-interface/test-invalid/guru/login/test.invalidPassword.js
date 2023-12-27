@@ -7,6 +7,10 @@ describe('Login with wrong password', () => {
         await LoginGuru.login('guru', 'invalidpassword');
     });
 
+    it('I get message error Username atau password salah.', async () => {
+        await expect(LoginGuru.errorPasswordIncorrect).toBeDisplayed()
+    })
+
     it('I Failed to enter the guru dashboard page', async () => {
         await expect(LoginGuru.txtSignIn).toBeDisplayed()
     })

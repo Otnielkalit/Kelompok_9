@@ -23,7 +23,7 @@ class AspekPage extends Page {
     get fieldKode() {
         return $('input[name="kode"]');
     }
-
+ 
     get clickDropDownd() {
         return $('select[id="kelas"]');
     }

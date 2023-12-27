@@ -48,6 +48,13 @@ class LoginGuru extends Page {
         return $('/html/body/main/div[1]/div/div/div/div/div[1]/div/h4');
     }
 
+    get btnDropdownLogout() {
+        return $('button[id="dropdownMenuButton1"]');
+    }
+
+    get btnLogout() {
+        return $('button[id="keluar"]');
+    }
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
@@ -57,6 +64,15 @@ class LoginGuru extends Page {
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
         await this.txtDasboard.isDisplayed()
+    }
+
+    async logout() {
+        // Klik dropdown untuk menunjukkan menu logout
+        await this.btnDropdownLogout.click();
+    
+        // Tunggu menu logout muncul dan klik
+        await this.btnLogout.waitForDisplayed();
+        await this.btnLogout.click();
     }
 
     /**

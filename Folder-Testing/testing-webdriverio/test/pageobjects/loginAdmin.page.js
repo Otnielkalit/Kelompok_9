@@ -42,6 +42,14 @@ class LoginPage extends Page {
         return $('/html/body/main/div[1]/div/div/div/div/div[1]/div/h4');
     }
 
+    get btnDropdownLogout() {
+        return $('button[id="dropdownMenuButton1"]');
+    }
+
+    get btnLogout() {
+        return $('button[id="keluar"]');
+    }
+    
     async login(username, password) {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
@@ -49,6 +57,14 @@ class LoginPage extends Page {
         await this.txtDasboard.isDisplayed();
     }
 
+    async logout() {
+        // Klik dropdown untuk menunjukkan menu logout
+        await this.btnDropdownLogout.click();
+    
+        // Tunggu menu logout muncul dan klik
+        await this.btnLogout.waitForDisplayed();
+        await this.btnLogout.click();
+    }
     open() {
         return super.open('signin');
     }

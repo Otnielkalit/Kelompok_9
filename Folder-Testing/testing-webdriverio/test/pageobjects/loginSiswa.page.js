@@ -40,6 +40,14 @@ class LoginSiswa extends Page {
         return $('button[type="submit"]');
     }
 
+    get btnDropdownLogout() {
+        return $('button[id="dropdownMenuButton1"]');
+    }
+
+    get btnLogout() {
+        return $('button[id="keluar"]');
+    }
+
     get txtDasboard() {
         return $('//*[@id="navbarBlur"]/div/nav/h6')
     }
@@ -55,6 +63,14 @@ class LoginSiswa extends Page {
         await this.txtDasboard.isDisplayed()
     }
 
+    async logout() {
+        // Klik dropdown untuk menunjukkan menu logout
+        await this.btnDropdownLogout.click();
+    
+        // Tunggu menu logout muncul dan klik
+        await this.btnLogout.waitForDisplayed();
+        await this.btnLogout.click();
+    }
     /**
      * overwrite specific options to adapt it to page object
      */
